@@ -4,6 +4,8 @@
         "doctrine/orm": "2.4.*"
     },
     "autoload": {
-        "psr-0": {"": "src/"}
+        "psr-4": {
+            "": "backend/"
+        }
     }
 }

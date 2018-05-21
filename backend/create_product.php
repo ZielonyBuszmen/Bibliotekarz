@@ -1,6 +1,8 @@
 <?php
 require_once "bootstrap.php";
 
+use Model\Product;
+
 $newProductName = $argv[1];
 
 $product = new Product();
