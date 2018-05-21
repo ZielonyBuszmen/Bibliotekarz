@@ -1,0 +1,7 @@
+{
+  "name": "nazwa",
+  "version": "1.0.0",
+  "main": "client/index.html",
+  "author": "Zielony Buszmen",
+  "license": "MIT"
+}

@@ -9,37 +9,45 @@ use Doctrine\ORM\Mapping as ORM;
  **/
 class Product
 {
-    /** @ORM\Id @ORM\Column(type="integer") @ORM\GeneratedValue * */
+    /**
+     * @ORM\Id @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     private $id;
 
-    /** @ORM\Column(type="string") * */
+    /**
+     * @ORM\Column(type="string")
+     *
+     */
     private $name;
 
-    /** @ORM\Column(type="string") * */
+    /**
+     * @ORM\Column(type="string")
+     */
     private $surname;
 
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name): void
     {
         $this->name = $name;
     }
 
-    public function getSurname()
+    public function getSurname(): string
     {
         return $this->surname;
     }
 
-    public function setSurname($surname)
+    public function setSurname($surname): void
     {
         $this->surname = $surname;
     }

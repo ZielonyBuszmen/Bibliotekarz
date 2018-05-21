@@ -1,0 +1,1 @@
+User-friendly dokumentacja + niżej sprawy developerskie
