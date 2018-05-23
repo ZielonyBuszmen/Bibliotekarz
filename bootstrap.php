@@ -1,22 +1,15 @@
 <?php
-// bootstrap.php
+
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
 require_once "vendor/autoload.php";
-
-// Create a simple "default" Doctrine ORM configuration for Annotations
-$isDevMode = true;
-$path_to_entity_files = array(__DIR__ . "/backend/Model");
-$config = Setup::createAnnotationMetadataConfiguration($path_to_entity_files, $isDevMode, null, null, false);
-
-$conn = array(
-    'driver'   => 'pdo_mysql',
-    'host'     => '127.0.0.1',
-    'dbname'   => 'bazka',
-    'user'     => 'root',
-    'password' => ''
-);
+require_once "config.php";
 
 // obtaining the entity manager
-$entityManager = EntityManager::create($conn, $config);
+$doctrine_config = Setup::createAnnotationMetadataConfiguration($CONFIG['path_to_entity_files'], $CONFIG['is_dev_mode'], null, null, false);
+try {
+    $entityManager = EntityManager::create($CONFIG['connection'], $doctrine_config);
+} catch (Exception $e) {
+    die($e->getMessage());
+}
