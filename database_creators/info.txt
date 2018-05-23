@@ -1,0 +1,4 @@
+Komenda analizująca wszystkie encje i tworząca na ich podstawie bazę danych:
+
+"vendor/bin/doctrine" orm:schema-tool:update --force --dump-sql
+

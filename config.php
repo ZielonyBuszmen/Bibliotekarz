@@ -2,7 +2,7 @@
 /**
  * Plik z konfiguracją, w przyszłości można zamienić na .env lub coś takiego
  */
-$CONFIG = [];
+global $CONFIG;
 
 $CONFIG['is_dev_mode'] = true;
 $CONFIG['path_to_entity_files'] = [__DIR__ . "/backend/Model"];
