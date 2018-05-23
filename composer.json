@@ -1,7 +1,7 @@
 {
     "name": "testowy_backend",
     "require": {
-        "doctrine/orm": "2.4.*"
+        "doctrine/orm": "2.6.*"
     },
     "autoload": {
         "psr-4": {

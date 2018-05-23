@@ -7,8 +7,8 @@ require_once "vendor/autoload.php";
 
 // Create a simple "default" Doctrine ORM configuration for Annotations
 $isDevMode = true;
-// Czyżby tutaj musiała być ścieżka do plików z Entity?
-$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/backend/Model"), $isDevMode, null, null, false);
+$path_to_entity_files = array(__DIR__ . "/backend/Model");
+$config = Setup::createAnnotationMetadataConfiguration($path_to_entity_files, $isDevMode, null, null, false);
 
 $conn = array(
     'driver'   => 'pdo_mysql',
