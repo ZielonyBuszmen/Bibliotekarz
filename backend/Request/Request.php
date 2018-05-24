@@ -7,10 +7,10 @@ class Request
     public $request_method;
     public $body;
 
-    public function __construct($expected_type_of_request)
+    public function __construct($expected_method_of_page_request)
     {
         $this->request_method = $this->getRequestMethod();
-        if ($expected_type_of_request != $this->request_method) {
+        if ($expected_method_of_page_request != $this->request_method) {
 //            throw new \Exception("O niet, zly typ requestu!!"); todo
             echo "zly typ requestu";
         }

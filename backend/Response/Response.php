@@ -49,6 +49,7 @@ class Response
     public function __construct($response_method = \HttpConsts::POST)
     {
         $this->code = self::DEFAULT_RESPONSE_CODE;
+        $this->response_method = $response_method;
     }
 
     public function addHeader($header)
