@@ -1,11 +1,15 @@
 {
-    "name": "testowy_backend",
-    "require": {
-        "doctrine/orm": "2.6.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "": "backend/"
-        }
+  "name": "testowy_backend",
+  "require": {
+    "doctrine/orm": "2.6.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "backend/"
     }
+  },
+  "scripts": {
+    "schema": "\"vendor/bin/doctrine\" orm:schema-tool:update --force",
+    "seed": "php database_creators/creator.php"
+  }
 }

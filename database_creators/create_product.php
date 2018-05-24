@@ -2,7 +2,7 @@
 
 use Model\Product;
 
-$newProductName = $argv[1];
+$newProductName = $_GET['product_name'];
 
 $product = new Product();
 $product->setName($newProductName);
