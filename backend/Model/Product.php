@@ -5,7 +5,8 @@ namespace Model;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity @ORM\Table(name="products")
+ * @ORM\Entity(repositoryClass="Model\Repository\ProductRepository")
+ * @ORM\Table(name="products")
  **/
 class Product
 {
