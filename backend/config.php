@@ -5,7 +5,6 @@
 global $CONFIG;
 
 $CONFIG['is_dev_mode'] = true;
-$CONFIG['path_to_entity_files'] = [__DIR__ . "/backend/Model"];
 
 $CONFIG['connection'] = [
     'driver' => 'pdo_mysql',

@@ -1,6 +1,9 @@
 <?php
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
-require_once "bootstrap.php";
+$ds = DIRECTORY_SEPARATOR;
+$consts = __DIR__  . $ds . 'consts.php';
+include_once $consts;
+require_once bootstrap;
 
 $entityManager = getEntityManager();
 return ConsoleRunner::createHelperSet($entityManager);
