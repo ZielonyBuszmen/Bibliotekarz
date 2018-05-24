@@ -1,0 +1,5 @@
+# Blocking access to following extensions
+<filesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+ Order Allow,Deny
+ Deny from all
+</filesMatch>
