@@ -15,7 +15,7 @@ class Request
 //            throw new \Exception("O niet, zly typ requestu!!"); todo
             echo "zly typ requestu";
         }
-        $this->body = $this->fetchBody($this->request_method);
+        $this->body = $this->getBody($this->request_method); // tymczasowo, potem tylko będzie korzystać się z getBody()
     }
 
     private function getRequestMethod()
@@ -23,9 +23,9 @@ class Request
         return $_SERVER['REQUEST_METHOD'];
     }
 
-    protected function fetchBody($request_method)
+    public function getBody()
     {
-        if ($request_method == 'GET') {
+        if ($this->request_method == 'GET') {
             return (object)$_GET;
         }
         return json_decode(file_get_contents("php://input"));
