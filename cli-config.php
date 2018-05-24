@@ -5,5 +5,5 @@ $consts = __DIR__  . $ds . 'consts.php';
 include_once $consts;
 require_once bootstrap;
 
-$entityManager = getEntityManager();
+$entityManager = \Model\EntityManagerFactory::getEntityManager();
 return ConsoleRunner::createHelperSet($entityManager);

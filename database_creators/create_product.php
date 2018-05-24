@@ -8,7 +8,7 @@ $product = new Product();
 $product->setName($newProductName);
 $product->setSurname($newProductName);
 
-$entityManager = getEntityManager();
+$entityManager = \Model\EntityManagerFactory::getEntityManager();
 $entityManager->persist($product);
 $entityManager->flush();
 

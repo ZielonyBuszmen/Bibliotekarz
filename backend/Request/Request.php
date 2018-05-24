@@ -4,7 +4,6 @@ namespace Request;
 
 class Request
 {
-
     public $request_method;
     public $body;
 
@@ -25,9 +24,29 @@ class Request
 
     public function getBody()
     {
-        if ($this->request_method == 'GET') {
+        if ($this->isGet()) {
             return (object)$_GET;
         }
         return json_decode(file_get_contents("php://input"));
+    }
+
+    public function isGet(): bool
+    {
+        return $_SERVER['REQUEST_METHOD'] == \HttpConsts::GET;
+    }
+
+    public function isPost(): bool
+    {
+        return $_SERVER['REQUEST_METHOD'] == \HttpConsts::POST;
+    }
+
+    public function isPut(): bool
+    {
+        return $_SERVER['REQUEST_METHOD'] == \HttpConsts::PUT;
+    }
+
+    public function isDelete(): bool
+    {
+        return $_SERVER['REQUEST_METHOD'] == \HttpConsts::DELETE;
     }
 }

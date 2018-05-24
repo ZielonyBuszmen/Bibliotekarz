@@ -1,5 +1,5 @@
 <?php
-require_once "../bootstrap.php";
+require_once "bootstrap.php";
 
 // naglowki z tutoriala, trzeba sprawdzic
 header("Access-Control-Allow-Origin: *");
