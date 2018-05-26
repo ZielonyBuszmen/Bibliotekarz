@@ -1,5 +1,5 @@
 <?php
-
+use Model\EntityManagerFactory;
 
 class ControllerFactory
 {
@@ -8,7 +8,9 @@ class ControllerFactory
      * @param $metod - nazwa metody do wywołania
      * @param $request - request to Request, bedzie przekazany w parametrach, a params to parametry z paska adresu. Chociaz mogą być one w request
      */
-    public static function createControllerFromRouter($controller, $metod, $request) {
-        // b
+    public static function createControllerFromRouter($controller, $action, $request) {
+        $entity_manager = EntityManagerFactory::getEntityManager();
+        $ctrl = new $controller($entity_manager);
+        $ctrl->{$action}($request);
     }
 }

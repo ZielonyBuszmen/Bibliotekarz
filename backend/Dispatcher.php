@@ -28,7 +28,7 @@ class Dispatcher
         $single_route = $router->routes[$request->request_method][$request->url];
 
 // potem tworze kontroler i przekazuję sterowanie do niego
-        ControllerFactory::createControllerFromRouter($single_route->controller, $single_route->method, $request);
+        ControllerFactory::createControllerFromRouter($single_route->controller, $single_route->action, $request);
 
     }
 }

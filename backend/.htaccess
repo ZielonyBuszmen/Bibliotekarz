@@ -3,3 +3,12 @@
  Order Allow,Deny
  Deny from all
 </filesMatch>
+
+# All requests to redirect to index.php file
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^.*$ ./index.php
