@@ -1,11 +1,18 @@
 <?php
+require_once "bootstrap.php";
 
 use Model\Product;
 use Response\Response;
 
-require_once "bootstrap.php";
-
+// tworzy entity manager
 $entity_manager = \Model\EntityManagerFactory::getEntityManager();
+
+require_once routing_list;
+// Czas na działanie dispatchera
+Dispatcher::dispatch($route);
+
+
+
 
 $request = new Request\Request('POST');
 $R = $request->getBody();

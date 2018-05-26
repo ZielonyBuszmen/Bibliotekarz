@@ -1,8 +1,7 @@
 <?php
 $ds = DIRECTORY_SEPARATOR;
-$consts = realpath(__DIR__ . $ds . '..') . $ds . 'consts.php';
-require_once $consts;
-require_once bootstrap;
+$bootstrap = realpath(__DIR__ . $ds . '..') . $ds . 'backend' . $ds . 'bootstrap.php';
+require_once $bootstrap;
 
 
 /**
