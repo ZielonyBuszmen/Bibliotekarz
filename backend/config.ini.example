@@ -7,3 +7,4 @@ password = ""
 
 [env]
 is_dev_mode = "true"
+server_backend_folder = "/testowy_backend/backend/"

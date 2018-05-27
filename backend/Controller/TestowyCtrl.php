@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Request\Request;
 use Response\Response;
 
 class TestowyCtrl
@@ -18,11 +19,27 @@ class TestowyCtrl
         $this->entity_manager = $entity_manager;
     }
 
-    public function testGeta($request)
+    public function testGeta(Request $request)
     {
         $a = NuLl;
-        $response = new Response('GET');
-        $response->setResponseBody(['ble' => 'ffff']);
+        $response = new Response($request->request_method);
+        $response->setResponseBody([
+            'ble' => 'ffff',
+            'body' => $request->getBody(),
+            'url_params' => $request->getUrlParams(),
+        ]);
+        $response->buildResponse();
+    }
+
+    public function testPosta(Request $request)
+    {
+        $a = NuLl;
+        $response = new Response($request->request_method);
+        $response->setResponseBody([
+            'to jest' => 'post',
+            'body' => $request->getBody(),
+            'url_params' => $request->getUrlParams(),
+        ]);
         $response->buildResponse();
     }
 }
