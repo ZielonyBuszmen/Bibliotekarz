@@ -5,6 +5,9 @@ namespace Model;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
+/**
+ * Factory class to get EntityManager whole project
+ */
 class EntityManagerFactory
 {
     /**
@@ -49,7 +52,7 @@ class EntityManagerFactory
         try {
             $this->entity_manager = EntityManager::create($CONFIG['database'], $doctrine_config);
         } catch (\Exception $e) {
-            die($e->getMessage());
+            die(json_encode(["ERROR" => $e->getMessage()]));
         }
     }
 

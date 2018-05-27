@@ -1,26 +1,17 @@
 <?php
-
-use Model\Product;
-use Response\Response;
-
+/**
+ * Bootstrap an appliacation
+ */
 require_once "bootstrap.php";
 
-$entity_manager = \Model\EntityManagerFactory::getEntityManager();
+use Dispatcher\Dispatcher;
 
-$request = new Request\Request('POST');
-$R = $request->getBody();
+/**
+ * Appends routing list from 'Routing/routing_list.php' ($route variable)
+ */
+require_once routing_list;
 
-
-$b = [
-    'cos' => 'cale_nic',
-    'zagniezdzenie' => ['duze', 'male', 'to', 'array'],
-    'dziadostwo' => ['klucz' => 'dziadostwo'],
-];
-
-$data_from_database = $entity_manager->getRepository(Product::class)->getAll();
-
-$response = new Response('POST');
-$response->setResponseBody($b);
-$response->buildResponse();
-
-$a = nUlL;
+/**
+ * Runs dispatcher and pass inside $route lists
+ */
+Dispatcher::dispatch($route);

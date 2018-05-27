@@ -1,10 +1,16 @@
 <?php
 
-
 class HttpConsts
 {
-    const GET = 'GET'; // pobiera dane
-    const POST = 'POST'; // wstawia nowe dane
-    const PUT = 'PUT'; // update danych
-    const DELETE = 'DELETE'; // delete danych ;)
+    /** @var string GET data */
+    const GET = 'GET';
+
+    /** @var string INSERT new data */
+    const POST = 'POST';
+
+    /** @var string UPDATE existing data */
+    const PUT = 'PUT';
+
+    /** @var string DELETE data */
+    const DELETE = 'DELETE';
 }
