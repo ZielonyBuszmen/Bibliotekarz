@@ -3,15 +3,16 @@
 namespace Dispatcher;
 
 use Model\EntityManagerFactory;
+use Request\Request;
 
 class ControllerFactory
 {
     /**
-     * @param $controller - nazwa kontrolera do stworzenia
-     * @param $metod - nazwa metody do wywołania
-     * @param $request - request to Request, bedzie przekazany w parametrach, a params to parametry z paska adresu. Chociaz mogą być one w request
+     * @param string $controller - controller name
+     * @param string $action - method name
+     * @param Request $request - request passed to controller's method argument
      */
-    public static function createControllerFromRouter($controller, $action, $request)
+    public static function createControllerFromRouter($controller, $action, Request $request)
     {
         $entity_manager = EntityManagerFactory::getEntityManager();
         $ctrl = new $controller($entity_manager);

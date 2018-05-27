@@ -6,20 +6,29 @@ namespace Routing;
 class RouteDataObject
 {
 
-    public $reuqest_type; // get, post, put, delete
-    public $url; // request url, eq /ble/sth
+    /** @var string - like 'get', 'post', 'put' or 'delete' */
+    public $request_type;
 
-//    // controller and method
+    /** @var string - request url, eq /ble/sth */
+    public $url;
+
+    /** @var string - controller name */
     public $controller;
+
+    /** @var string - controller's name method */
     public $action;
 
-    public function __construct($request_type, $url)
+    public function __construct(string $request_type, string $url)
     {
         $this->request_type = $request_type;
-        $this->parsed_url = $url;
+        $this->url = $url;
     }
 
-    public function to($controller, $action)
+    /**
+     * @param string $controller - destination controller
+     * @param string $action - destination controller's method
+     */
+    public function to(string $controller, string $action)
     {
         $this->controller = $controller;
         $this->action = $action;

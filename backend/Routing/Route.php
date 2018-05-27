@@ -2,9 +2,10 @@
 
 namespace Routing;
 
-// Route::get('ble')->to('kontroler', 'funkcja');
 
-
+/**
+ * Allows to create routing list in fluent api, like -> Route::get('ble')->to('kontroler', 'funkcja');
+ */
 class Route
 {
     public $routes;

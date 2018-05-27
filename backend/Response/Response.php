@@ -70,7 +70,7 @@ class Response
         $this->body = $body;
     }
 
-    public function buildResponse()
+    public function send()
     {
         $headers = $this->response_method == \HttpConsts::GET ? self::GET_HEADERS : self::POST_HEADERS;
         foreach ($headers as $header) {

@@ -8,8 +8,6 @@ class Request
     public $body;
     public $url;
 
-//    public arguments_array;
-
     public function __construct()
     {
         $this->request_method = $this->getRequestMethod();
@@ -24,11 +22,11 @@ class Request
 
     private function getRequestUrl()
     {
-        #remove the directory path we don't want (/dir/backend/request_url?id=12 change to 'request_url'
+        // remove the directory path we don't want (/dir/backend/request_url?id=12 change to 'request_url'
         $request = str_replace($GLOBALS['CONFIG']['env']['server_backend_folder'], "", $_SERVER['REQUEST_URI']);
         $request = strstr($request, '?', true) ?: $request;
 
-        #split the path by '/'
+        // split the path by '/'
         $params = explode("/", $request);
         return $params[0];
     }
