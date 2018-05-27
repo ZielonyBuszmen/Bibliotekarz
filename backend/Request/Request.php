@@ -28,8 +28,9 @@ class Request
 
     private function getRequestUrl()
     {
-        #remove the directory path we don't want
+        #remove the directory path we don't want (/dir/backend/request_url?id=12 change to 'request_url'
         $request = str_replace(server_subfolder_backend, "", $_SERVER['REQUEST_URI']);
+        $request = strstr($request, '?', true);
 
         #split the path by '/'
         $params = explode("/", $request);

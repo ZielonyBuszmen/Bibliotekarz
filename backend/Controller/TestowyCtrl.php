@@ -1,8 +1,8 @@
 <?php
 
-
 namespace Controller;
 
+use Response\Response;
 
 class TestowyCtrl
 {
@@ -21,5 +21,8 @@ class TestowyCtrl
     public function testGeta($request)
     {
         $a = NuLl;
+        $response = new Response('GET');
+        $response->setResponseBody(['ble' => 'ffff']);
+        $response->buildResponse();
     }
 }
