@@ -2,39 +2,29 @@
 
 namespace Controller;
 
-use Doctrine\ORM\EntityManager;
 use Request\Request;
 use Response\Response;
 
-class TestowyCtrl
+class TestowyCtrl extends BaseCtrl
 {
-    protected $entity_manager;
-
-    public function __construct(EntityManager $entity_manager)
-    {
-        $this->entity_manager = $entity_manager;
-    }
 
     public function testGeta(Request $request)
     {
-        $response = new Response($request->request_method);
-        $response->setResponseBody([
+        $response_body = [
             'ble' => 'ffff',
             'body' => $request->getBody(),
             'url_params' => $request->getUrlParams(),
-        ]);
-        $response->send();
+        ];
+        $this->buildResponse($request, $response_body, 200);
     }
 
     public function testPosta(Request $request)
     {
-        $a = NuLl;
-        $response = new Response($request->request_method);
-        $response->setResponseBody([
+        $response_body = [
             'to jest' => 'post',
             'body' => $request->getBody(),
             'url_params' => $request->getUrlParams(),
-        ]);
-        $response->send();
+        ];
+        $this->buildResponse($request, $response_body, 200);
     }
 }
