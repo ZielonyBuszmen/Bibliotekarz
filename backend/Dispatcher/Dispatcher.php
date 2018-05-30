@@ -2,6 +2,7 @@
 
 namespace Dispatcher;
 
+use Exception\ExceptionHandler;
 use Exception\InvalidRoutingException;
 use Request\Request;
 use Routing\Route;
@@ -12,14 +13,16 @@ class Dispatcher
     /**
      * Main method, which doing "dispatch". Method get the reqest, searches appropriate route and create controller
      * @param Route $routing_list
-     * @throws InvalidRoutingException
      */
     public static function dispatch(Route $routing_list)
     {
-        $request = new Request(); // get request
-        /** @var RouteDataObject $single_route */
-        $single_route = self::getRoute($routing_list, $request);
-        ControllerFactory::createControllerFromRouter($single_route->controller, $single_route->action, $request);
+        try {
+            $request = new Request();
+            $single_route = self::getRoute($routing_list, $request);
+            ControllerFactory::createControllerFromRouter($single_route->controller, $single_route->action, $request);
+        } catch (\Exception $e) {
+            new ExceptionHandler($e);
+        }
     }
 
     /**
@@ -33,7 +36,7 @@ class Dispatcher
         if (isset($routing_list->routes[$request->request_method][$request->url])) {
             return $routing_list->routes[$request->request_method][$request->url];
         } else {
-            throw new InvalidRoutingException();
+            throw new InvalidRoutingException($request->url, $request->request_method);
         }
     }
 }

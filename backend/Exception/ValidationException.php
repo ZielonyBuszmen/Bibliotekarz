@@ -4,19 +4,17 @@ namespace Exception;
 
 class ValidationException extends \Exception
 {
+
+    protected $validation_errors;
+
     public function __construct(array $validation_errors, $code = 422)
     {
-        $message = $this->buildMessageFromErrors($validation_errors);
-        parent::__construct($message, $code);
+        parent::__construct('Validation errors', $code);
+        $this->validation_errors = $validation_errors;
     }
 
-    protected function buildMessageFromErrors(array $errors)
+    public function getValidationErrors()
     {
-        $message = [
-            'message' => 'Validation errors',
-            'type' => get_class($this),
-            'errors' => $errors,
-        ];
-        return json_encode($message);
+        return $this->validation_errors;
     }
 }
