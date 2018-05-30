@@ -3,7 +3,6 @@
 namespace Controller;
 
 use Request\Request;
-use Response\Response;
 
 class TestowyCtrl extends BaseCtrl
 {

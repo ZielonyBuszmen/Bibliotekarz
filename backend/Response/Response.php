@@ -70,14 +70,14 @@ class Response
         $this->body = $body;
     }
 
-    public function send()
+    public function send(bool $jsonify = true)
     {
         $headers = $this->response_method == \HttpConsts::GET ? self::GET_HEADERS : self::POST_HEADERS;
         foreach ($headers as $header) {
             header($header);
         }
         http_response_code($this->code);
-        echo json_encode($this->body);
+        echo $jsonify ? json_encode($this->body) : $this->body;
     }
 
 }
