@@ -19,6 +19,7 @@ abstract class BaseCtrl
 
     protected function buildResponse(Request $request, $response_body, $code = 200)
     {
+        $response_body['ok'] = true;
         $response = new Response($request->request_method);
         $response->setCode($code);
         $response->setResponseBody($response_body);

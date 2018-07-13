@@ -24,8 +24,9 @@ class ExceptionHandler
     {
         $type = get_class($this->exception);
         $response_body = [
-            'message' => $this->exception->getMessage(),
+            'ok' => false,
             'type' => $type,
+            'message' => $this->exception->getMessage(),
         ];
         $this->buildExceptionResponse($response_body, $this->exception->getCode());
     }
@@ -36,8 +37,9 @@ class ExceptionHandler
         $e = $this->exception;
         $type = get_class($this->exception);
         $response_body = [
-            'message' => $e->getMessage(),
+            'ok' => false,
             'type' => $type,
+            'message' => $e->getMessage(),
             'errors' => $e->getValidationErrors(),
         ];
         $this->buildExceptionResponse($response_body, $e->getCode());

@@ -11,8 +11,8 @@ class TestowyCtrl extends BaseCtrl
     {
         $response_body = [
             'ble' => 'ffff',
-            'body' => $request->getBody(),
-            'url_params' => $request->getUrlParams(),
+            'body_requestu_tutaj_leci' => $request->getBody(),
+            'url_params_tutaj_leci' => $request->getUrlParams(),
         ];
         $this->buildResponse($request, $response_body, 200);
     }
@@ -21,8 +21,8 @@ class TestowyCtrl extends BaseCtrl
     {
         $response_body = [
             'to jest' => 'post',
-            'body' => $request->getBody(),
-            'url_params' => $request->getUrlParams(),
+            'body_requestu_tutaj_leci' => $request->getBody(),
+            'url_params_tutaj_leci' => $request->getUrlParams(),
         ];
         $this->buildResponse($request, $response_body, 200);
     }
