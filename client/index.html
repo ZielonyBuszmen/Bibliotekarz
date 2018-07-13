@@ -1,1 +1,19 @@
 <h1>Test indexa</h1>
+
+<script>
+
+  fetch('../backend/test?a=12', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+      },
+    },
+  ).then(response => {
+    response.json().then(json => {
+      console.log(json);
+    });
+
+  });
+
+
+</script>

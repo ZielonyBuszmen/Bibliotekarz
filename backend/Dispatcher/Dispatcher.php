@@ -4,6 +4,8 @@ namespace Dispatcher;
 
 use Exception\ExceptionHandler;
 use Exception\InvalidRoutingException;
+use Permissions\PermissionChecker;
+use Permissions\PlaceResourcesMap;
 use Request\Request;
 use Routing\Route;
 use Routing\RouteDataObject;
@@ -19,6 +21,11 @@ class Dispatcher
         try {
             $request = new Request();
             $single_route = self::getRoute($routing_list, $request);
+
+            $place_resources_map = new PlaceResourcesMap();
+            $permission_checker = new PermissionChecker($place_resources_map);
+            $permission_checker->check($single_route->controller, $single_route->action);
+
             ControllerFactory::createControllerFromRouter($single_route->controller, $single_route->action, $request);
         } catch (\Exception $e) {
             new ExceptionHandler($e);
