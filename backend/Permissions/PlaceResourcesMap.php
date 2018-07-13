@@ -2,11 +2,20 @@
 
 namespace Permissions;
 
+use Controller\WelcomeCtrl;
+
 class PlaceResourcesMap
 {
     protected static $data = [
         'place' => [
             'controller::class' . '::method',
+        ],
+        'tests' => [
+            WelcomeCtrl::class . '::wakeUpServer',
+            WelcomeCtrl::class . '::testGetRequest',
+            WelcomeCtrl::class . '::testPostRequest',
+            WelcomeCtrl::class . '::testPutRequest',
+            WelcomeCtrl::class . '::testDeleteRequest',
         ]
     ];
 

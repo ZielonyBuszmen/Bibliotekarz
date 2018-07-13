@@ -7,16 +7,6 @@ use Request\Request;
 class TestowyCtrl extends BaseCtrl
 {
 
-    public function testGeta(Request $request)
-    {
-        $response_body = [
-            'ble' => 'ffff',
-            'body_requestu_tutaj_leci' => $request->getBody(),
-            'url_params_tutaj_leci' => $request->getUrlParams(),
-        ];
-        $this->buildResponse($request, $response_body, 200);
-    }
-
     public function testPosta(Request $request)
     {
         $response_body = [

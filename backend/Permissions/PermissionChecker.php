@@ -31,10 +31,7 @@ class PermissionChecker
     {
         $resources = $this->place_resource_map->getResources();
         $resource_name = $controller . '::' . $action;
-        if (isset($resources[$resource_name])) {
-            return $resources[$resource_name];
-        }
-        return null;
+        return $resources[$resource_name] ?? null;
     }
 
     protected function checkPrivToPlace($place)
