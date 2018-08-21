@@ -5,7 +5,6 @@ use Controller\TestowyCtrl;
 use Controller\WelcomeCtrl;
 
 $route = new Route();
-global $route;
 
 // tests requests
 $route->get('wake_up')->to(WelcomeCtrl::class, 'wakeUpServer');
@@ -21,3 +20,5 @@ $route->delete('test')->to(WelcomeCtrl::class, 'testDeleteRequest');
 
 // todo do wywalenia
 $route->post('test')->to(TestowyCtrl::class, 'testPosta');
+
+return $route;
