@@ -11,5 +11,4 @@ require_once $bootstrap;
  * TODO - do obmyślenia
  */
 
-$_GET['product_name'] = "Produkcik";
-include 'create_product.php';
+include "create_books.php";

@@ -23,7 +23,7 @@ class Book
     private $title;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Author", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="Author")
      * @ORM\JoinColumn(name="author_nid", referencedColumnName="author_nid")
      */
     private $author;
@@ -34,20 +34,15 @@ class Book
     private $isbn;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Publisher", inversedBy="books")
+     * @ORM\ManyToOne(targetEntity="Publisher")
      * @ORM\JoinColumn(name="publisher_nid", referencedColumnName="publisher_nid")
      */
     private $publisher;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     private $publication_year;
-
-    public function __construct(int $book_nid)
-    {
-        $this->book_nid = $book_nid;
-    }
 
     public function getBookNid(): int
     {
@@ -94,12 +89,12 @@ class Book
         $this->publisher = $publisher;
     }
 
-    public function getPublicationYear(): string
+    public function getPublicationYear(): int
     {
         return $this->publication_year;
     }
 
-    public function setPublicationYear(string $publication_year): void
+    public function setPublicationYear(int $publication_year): void
     {
         $this->publication_year = $publication_year;
     }
