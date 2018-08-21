@@ -1,5 +1,6 @@
 <?php
 
+use Controller\BooksController;
 use Routing\Route;
 use Controller\TestowyCtrl;
 use Controller\WelcomeCtrl;
@@ -17,6 +18,8 @@ $route->post('test')->to(WelcomeCtrl::class, 'testPostRequest');
 $route->put('test')->to(WelcomeCtrl::class, 'testPutRequest');
 $route->delete('test')->to(WelcomeCtrl::class, 'testDeleteRequest');
 
+
+$route->get('all_books')->to(BooksController::class, 'getAllBooks');
 
 // todo do wywalenia
 $route->post('test')->to(TestowyCtrl::class, 'testPosta');

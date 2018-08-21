@@ -22,4 +22,9 @@ class Author
      */
     private $name;
 
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
 }
