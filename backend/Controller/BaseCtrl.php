@@ -23,7 +23,8 @@ abstract class BaseCtrl
         $response = new Response($request->request_method);
         $response->setCode($code);
         $response->setResponseBody($response_body);
-        $response->send();
+
+        return $response;
     }
 
 }

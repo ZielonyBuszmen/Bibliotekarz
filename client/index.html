@@ -1,13 +1,14 @@
 <h1>Test indexa</h1>
 
 <script>
-
-  fetch('../backend/test?a=12', {
-      method: 'POST',
+const url1 = '../backend/test?a=12';
+const url2 = '../backend/all_books';
+  fetch(url2, {
+      method: 'GET',
       headers: {
         Accept: 'application/json',
       },
-      body: JSON.stringify({jakies: 'body'})
+      // body: JSON.stringify({jakies: 'body'}) // nie moze byc body, jesli leci GET
     },
   ).then(response => {
     response.json().then(json => {

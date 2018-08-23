@@ -15,6 +15,11 @@ class Request
         $this->body = $this->getBody($this->request_method); // tymczasowo, potem tylko będzie korzystać się z getBody()
     }
 
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
     private function getRequestMethod()
     {
         return $_SERVER['REQUEST_METHOD'];

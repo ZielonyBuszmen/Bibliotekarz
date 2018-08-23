@@ -25,7 +25,8 @@ class BooksController extends BaseCtrl
                 'publication_year' => $book->getPublicationYear(),
             ];
         }
-        $this->buildResponse($request, $result);
+
+        return $this->buildResponse($request, $result);
     }
 
     public function searchBooks($wildcard)

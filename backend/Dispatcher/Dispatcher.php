@@ -26,7 +26,8 @@ class Dispatcher
             $permission_checker = new PermissionChecker($place_resources_map);
             $permission_checker->check($single_route->controller, $single_route->action);
 
-            ControllerFactory::createControllerFromRouter($single_route->controller, $single_route->action, $request);
+            $response = ControllerFactory::createControllerFromRouter($single_route->controller, $single_route->action, $request);
+            $response->send(); // todo - tymczasowe, pewnie trzeba to wynieść gdzieś indziej
         } catch (\Exception $e) {
             new ExceptionHandler($e);
         }

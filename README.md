@@ -1,6 +1,8 @@
+# Projekt w fazie rozwojowej!
+
 // todo readme
 
-#Instalacja:
+# Instalacja:
 - Zamienić nazwę pliku `backend/config.ini.example` na `backend/config.ini` (wywalić suffix _'example'_)
 - W głównym katalogu `composer install`
 
@@ -15,3 +17,5 @@ Wgranie przykładowych danych `php database_creators/creator.php`
 Aby odpalić listę dostępnych komend w doctrine, wystarczy wykonać `"vendor/bin/doctrine"` (tak, z cudzysłowami) (działa pod Windowsem)
 
 Czasami trzeba wygenerować "proxies" do encji, robi się to komendą `"vendor/bin/doctrine" orm:generate-proxies`
+
+Lista wszystkich routów dostępna jest pod `/routing_list`, natomiast test konfiguracji folderów pod '`/test_backend`'
