@@ -23,7 +23,7 @@ class Book
     private $title;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Author")
+     * @ORM\ManyToOne(targetEntity="Author", inversedBy="books")
      * @ORM\JoinColumn(name="author_nid", referencedColumnName="author_nid")
      */
     private $author;

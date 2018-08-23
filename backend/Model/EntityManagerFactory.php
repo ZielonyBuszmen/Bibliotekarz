@@ -59,6 +59,9 @@ class EntityManagerFactory
     protected function getDoctrineConfig()
     {
         $CONFIG = $GLOBALS['CONFIG'];
-        return Setup::createAnnotationMetadataConfiguration(entity_files_localization, $CONFIG['env']['is_dev_mode'], null, null, false);
+        $is_dev_mode = $CONFIG['env']['is_dev_mode'];
+        $doctrine_config = Setup::createAnnotationMetadataConfiguration(entity_files_localization, $is_dev_mode, doctrine_proxy_dir, null, false);
+        $doctrine_config->setAutoGenerateProxyClasses(true == $is_dev_mode);
+        return $doctrine_config;
     }
 }

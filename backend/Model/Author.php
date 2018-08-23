@@ -22,6 +22,16 @@ class Author
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Book", mappedBy="author")
+     */
+    private $books;
+
+    public function getAuthorNid()
+    {
+        return $this->author_nid;
+    }
+    
     public function getName(): ?string
     {
         return $this->name;
@@ -30,5 +40,10 @@ class Author
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    public function getBooks()
+    {
+        return $this->books;
     }
 }
