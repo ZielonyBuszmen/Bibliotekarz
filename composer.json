@@ -3,10 +3,16 @@
   "require": {
     "doctrine/orm": "2.6.*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
   "autoload": {
     "psr-4": {
       "": "backend/"
-    }
+    },
+    "classmap": [
+      "backend/"
+    ]
   },
   "scripts": {
     "schema": "\"vendor/bin/doctrine\" orm:schema-tool:update --force",
