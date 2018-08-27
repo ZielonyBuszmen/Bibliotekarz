@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-use Request\Request;
+use Core\Request\Request;
 
 class TestowyCtrl extends BaseCtrl
 {

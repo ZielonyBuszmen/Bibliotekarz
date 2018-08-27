@@ -2,8 +2,8 @@
 
 namespace Exception;
 
-use Request\Request;
-use Response\Response;
+use Core\Request\Request;
+use Core\Response\Response;
 
 class ExceptionHandler
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace Core;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;

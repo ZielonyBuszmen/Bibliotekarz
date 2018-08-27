@@ -6,7 +6,7 @@ use Exception\ExceptionHandler;
 use Exception\InvalidRoutingException;
 use Permissions\PermissionChecker;
 use Permissions\PlaceResourcesMap;
-use Request\Request;
+use Core\Request\Request;
 use Routing\Route;
 use Routing\RouteDataObject;
 

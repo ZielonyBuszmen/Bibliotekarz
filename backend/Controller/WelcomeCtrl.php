@@ -2,8 +2,8 @@
 
 namespace Controller;
 
-use Request\Request;
-use Response\Response;
+use Core\Request\Request;
+use Core\Response\Response;
 
 class WelcomeCtrl extends BaseCtrl
 {

@@ -17,7 +17,7 @@ function createBook($title, $isbn, $publication_year, $author_name, $publisher_n
     $publisher->setName($publisher_name);
     $book->setPublisher($publisher);
 
-    $entityManager = \Model\EntityManagerFactory::getEntityManager();
+    $entityManager = \Core\EntityManagerFactory::getEntityManager();
     $entityManager->persist($book);
     $entityManager->persist($author);
     $entityManager->persist($publisher);

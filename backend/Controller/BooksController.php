@@ -3,7 +3,7 @@
 namespace Controller;
 
 use Model\Book;
-use Request\Request;
+use Core\Request\Request;
 
 class BooksController extends BaseCtrl
 {

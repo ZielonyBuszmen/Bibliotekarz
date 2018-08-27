@@ -5,8 +5,8 @@ namespace Controller;
 
 
 use Doctrine\ORM\EntityManager;
-use Request\Request;
-use Response\Response;
+use Core\Request\Request;
+use Core\Response\Response;
 
 abstract class BaseCtrl
 {

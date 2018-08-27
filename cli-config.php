@@ -5,5 +5,5 @@ require_once $bootstrap;
 
 use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
-$entityManager = \Model\EntityManagerFactory::getEntityManager();
+$entityManager = \Core\EntityManagerFactory::getEntityManager();
 return ConsoleRunner::createHelperSet($entityManager);

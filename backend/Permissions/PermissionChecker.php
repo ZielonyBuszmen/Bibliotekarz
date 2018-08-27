@@ -12,7 +12,6 @@ class PermissionChecker
 
     public function __construct(PlaceResourcesMap $place_resource_map)
     {
-
         $this->place_resource_map = $place_resource_map;
     }
 

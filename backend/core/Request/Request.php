@@ -1,6 +1,8 @@
 <?php
 
-namespace Request;
+namespace Core\Request;
+
+use Core\HttpConsts;
 
 class Request
 {
@@ -51,21 +53,21 @@ class Request
 
     public function isGet(): bool
     {
-        return $_SERVER['REQUEST_METHOD'] == \HttpConsts::GET;
+        return $_SERVER['REQUEST_METHOD'] == HttpConsts::GET;
     }
 
     public function isPost(): bool
     {
-        return $_SERVER['REQUEST_METHOD'] == \HttpConsts::POST;
+        return $_SERVER['REQUEST_METHOD'] == HttpConsts::POST;
     }
 
     public function isPut(): bool
     {
-        return $_SERVER['REQUEST_METHOD'] == \HttpConsts::PUT;
+        return $_SERVER['REQUEST_METHOD'] == HttpConsts::PUT;
     }
 
     public function isDelete(): bool
     {
-        return $_SERVER['REQUEST_METHOD'] == \HttpConsts::DELETE;
+        return $_SERVER['REQUEST_METHOD'] == HttpConsts::DELETE;
     }
 }

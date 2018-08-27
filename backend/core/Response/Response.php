@@ -1,7 +1,7 @@
 <?php
+namespace Core\Response;
 
-
-namespace Response;
+use Core\HttpConsts;
 
 /**
  * todo:
@@ -46,7 +46,7 @@ class Response
     /**
      * Response constructor.
      */
-    public function __construct($response_method = \HttpConsts::POST)
+    public function __construct($response_method = HttpConsts::POST)
     {
         $this->code = self::DEFAULT_RESPONSE_CODE;
         $this->response_method = $response_method;
@@ -72,7 +72,7 @@ class Response
 
     public function send(bool $jsonify = true)
     {
-        $headers = $this->response_method == \HttpConsts::GET ? self::GET_HEADERS : self::POST_HEADERS;
+        $headers = $this->response_method == HttpConsts::GET ? self::GET_HEADERS : self::POST_HEADERS;
         foreach ($headers as $header) {
             header($header);
         }

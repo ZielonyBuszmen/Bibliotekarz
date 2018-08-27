@@ -1,4 +1,4 @@
-/backend/config.ini
+/config/config.ini
 /.idea/
 /vendor/
 /node_modules/

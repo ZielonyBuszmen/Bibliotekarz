@@ -2,9 +2,9 @@
 
 namespace Dispatcher;
 
-use Model\EntityManagerFactory;
-use Request\Request;
-use Response\Response;
+use Core\EntityManagerFactory;
+use Core\Request\Request;
+use Core\Response\Response;
 
 class ControllerFactory
 {
