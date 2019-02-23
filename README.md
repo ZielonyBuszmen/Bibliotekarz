@@ -19,3 +19,12 @@ Aby odpalić listę dostępnych komend w doctrine, wystarczy wykonać `"vendor/b
 Czasami trzeba wygenerować "proxies" do encji, robi się to komendą `"vendor/bin/doctrine" orm:generate-proxies`
 
 Lista wszystkich routów dostępna jest pod `/routing_list`, natomiast test konfiguracji folderów pod '`/test_backend`'
+
+
+
+# docker
+
+wykonanie komendy w kontenerze:
+    docker exec testowy_backend_php_1 composer install
+
+
