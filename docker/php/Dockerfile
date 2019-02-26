@@ -1,10 +1,10 @@
-FROM php:7.2.7-fpm-alpine3.7
-RUN apk update; \
-    apk upgrade;
-RUN docker-php-ext-install mysqli
-RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
-    && curl -o /tmp/composer-setup.sig https://composer.github.io/installer.sig \
-    # Make sure we're installing what we think we're installing!
-    && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); echo 'Invalid installer' . PHP_EOL; exit(1); }" \
-    && php /tmp/composer-setup.php --no-ansi --install-dir=/usr/local/bin --filename=composer --snapshot \
-    && rm -f /tmp/composer-setup.*
+FROM php:7.2-fpm
+RUN apt-get update && apt-get install -y mysql-client git zip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN docker-php-ext-install pdo pdo_mysql
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && useradd composer \
+    && mkdir /home/composer \
+    && chown composer:composer /home/composer \
+    && usermod -aG sudo composer

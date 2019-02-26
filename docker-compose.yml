@@ -1,24 +1,27 @@
 version: "3.2"
 services:
-  php:
+  bibliotekarz_php:
+    container_name: bibliotekarz_php
     build: './docker/php/'
     networks:
       - backend
     volumes:
       - ./:/var/www/html/
-  apache:
+  bibliotekarz_apache:
+    container_name: bibliotekarz_apache
     build: './docker/apache/'
     depends_on:
-      - php
-      - mysql
+      - bibliotekarz_php
+      - bibliotekarz_mysql
     networks:
       - frontend
       - backend
     ports:
-      - "8080:80"
+      - 8080:80
     volumes:
       - ./:/var/www/html/
-  mysql:
+  bibliotekarz_mysql:
+    container_name: bibliotekarz_mysql
     image: mysql:5.7
     networks:
       - backend
@@ -28,16 +31,17 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
 
-  phpmyadmin:
+  bibliotekarz_phpmyadmin:
+    container_name: bibliotekarz_phpmyadmin
     image: phpmyadmin/phpmyadmin
     networks:
       - backend
     depends_on:
-      - mysql
+      - bibliotekarz_mysql
     ports:
       - 8081:80
     environment:
-      PMA_HOST: mysql
+      PMA_HOST: bibliotekarz_mysql
       MYSQL_ROOT_PASSWORD: root
 networks:
   frontend:
