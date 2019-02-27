@@ -1,10 +1,10 @@
 [database]
 driver = "pdo_mysql"
-host = "127.0.0.1"
-dbname = "db_name"
+host = "bibliotekarz_mysql"
+dbname = "bazka"
 user = "root"
-password = ""
+password = "root"
 
 [env]
 is_dev_mode = "true"
-server_backend_folder = "/testowy_backend/backend/"
+server_backend_folder = "/backend/"

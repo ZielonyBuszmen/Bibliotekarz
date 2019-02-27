@@ -1,0 +1,6 @@
+.git
+.dockerignore
+.idea
+vendor
+docker
+client/node_modules
