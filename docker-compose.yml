@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./:/code
+      - ./:/var/www/html/
       - ./docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
     networks:
       - code-network
@@ -15,7 +15,7 @@ services:
     container_name: bibliotekarz_php
     build: './docker/php/'
     volumes:
-      - ./:/code
+      - ./:/var/www/html/
     networks:
       - code-network
   bibliotekarz_mysql:
