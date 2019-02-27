@@ -18,7 +18,30 @@ services:
       - ./:/code
     networks:
       - code-network
+  bibliotekarz_mysql:
+    container_name: bibliotekarz_mysql
+    image: mysql:5.7
+    networks:
+      - code-network
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: bazka
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
 
+  bibliotekarz_phpmyadmin:
+    container_name: bibliotekarz_phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    networks:
+      - code-network
+    depends_on:
+      - bibliotekarz_mysql
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: bibliotekarz_mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
 networks:
   code-network:
     driver: bridge
