@@ -1,48 +1,24 @@
-version: "3.2"
+version: '2'
+
 services:
+  bibliotekarz_nginx:
+    container_name: bibliotekarz_nginx
+    image: nginx:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/code
+      - ./docker/nginx/site.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - code-network
   bibliotekarz_php:
     container_name: bibliotekarz_php
     build: './docker/php/'
-    networks:
-      - backend
     volumes:
-      - ./:/var/www/html/
-  bibliotekarz_apache:
-    container_name: bibliotekarz_apache
-    build: './docker/apache/'
-    depends_on:
-      - bibliotekarz_php
-      - bibliotekarz_mysql
+      - ./:/code
     networks:
-      - frontend
-      - backend
-    ports:
-      - 8080:80
-    volumes:
-      - ./:/var/www/html/
-  bibliotekarz_mysql:
-    container_name: bibliotekarz_mysql
-    image: mysql:5.7
-    networks:
-      - backend
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: bazka
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user
+      - code-network
 
-  bibliotekarz_phpmyadmin:
-    container_name: bibliotekarz_phpmyadmin
-    image: phpmyadmin/phpmyadmin
-    networks:
-      - backend
-    depends_on:
-      - bibliotekarz_mysql
-    ports:
-      - 8081:80
-    environment:
-      PMA_HOST: bibliotekarz_mysql
-      MYSQL_ROOT_PASSWORD: root
 networks:
-  frontend:
-  backend:
+  code-network:
+    driver: bridge
