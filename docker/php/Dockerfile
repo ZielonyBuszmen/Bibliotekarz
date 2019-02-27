@@ -8,3 +8,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     && mkdir /home/composer \
     && chown composer:composer /home/composer \
     && usermod -aG sudo composer
+RUN docker-php-ext-install mysqli
