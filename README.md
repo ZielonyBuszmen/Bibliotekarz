@@ -28,3 +28,6 @@ wykonanie komendy w kontenerze:
     docker exec testowy_backend_php_1 composer install
 
 Jeśli nie działa na dockerze poprawne ładowanie danych z routingu, trzeba sprawdzić w config.ini, czy dobra ścieżka jest podana do folderu backend. Np. zamiast /testowy_backend/backend/ powinno być samo /backend/
+
+W przypadku, gdy łączymy się z bazą danych, w config.ini jako host podajemy nazwę naszego service z docker-compose (np bibliotekarz_mysql)
+
