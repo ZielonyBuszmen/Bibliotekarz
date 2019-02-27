@@ -27,4 +27,4 @@ Lista wszystkich routów dostępna jest pod `/routing_list`, natomiast test konf
 wykonanie komendy w kontenerze:
     docker exec testowy_backend_php_1 composer install
 
-
+Jeśli nie działa na dockerze poprawne ładowanie danych z routingu, trzeba sprawdzić w config.ini, czy dobra ścieżka jest podana do folderu backend. Np. zamiast /testowy_backend/backend/ powinno być samo /backend/
