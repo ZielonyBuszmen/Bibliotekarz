@@ -6,4 +6,4 @@
 // todo - w przyszłośi można dodać "rozpoznawanie", czy leci request z przeglądarki do /client, czy do /backend jako API
 // ale może być to niewykonalne
 
-header('Location: client/');
+header('Location: frontend/');
