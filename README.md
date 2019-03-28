@@ -28,9 +28,9 @@ server_backend_folder = "/bibliotekarz/backend/" <- dodajemy nazwę folderu, do 
 ## Przez Dockera (nginx)
  - W głównym katalogu wpisujemy komendę `docker-compose up`
  - Kopujemy i zamieniamy nazwę pliku `backend/config.ini.example` na `backend/config.ini` (wywalić suffix _'example'_)
- - W głównym katalogu wykonujemy komendę `bin\composerb.bat install` (pod linuxem `bin/composerb.sh install`)
- - Aby stworzyć schemę bazy, wpisujemy `bin\composerb.bat schema` (pod linuxem `bin/composerb.sh schema`)
- - Aby wypełnić bazę danymi, wpisujemy `bin\composerb.bat seed` (pod linuxem `bin/composerb.sh seed`)
+ - W głównym katalogu wykonujemy komendę `bin\composer.bat install` (pod linuxem `bin/composer.sh install`)
+ - Aby stworzyć schemę bazy, wpisujemy `bin\composer.bat schema` (pod linuxem `bin/composer.sh schema`)
+ - Aby wypełnić bazę danymi, wpisujemy `bin\composer.bat seed` (pod linuxem `bin/composer.sh seed`)
  - Uruchamiamy projekt wpisując w przeglądarce `localhost:8080`
  - Do backendu dostajemy się wpisując w przeglądarce `localhost:8080/backend`
  - Lista routingów jest dostępna w  `localhost:8080/backend/routing_list`
